@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .per {
+            perspective: 300px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+            margin: 100px auto;
+            transform: rotateY(60deg);
+        }
+        
+        .box:hover {
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="per">
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>

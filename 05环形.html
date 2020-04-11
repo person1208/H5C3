@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #000;
+        }
+        
+        .stage {
+            width: 800px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            perspective: 3300px;
+        }
+        
+        .box {
+            width: 800px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 2s linear;
+        }
+        
+        p {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -150px;
+        }
+        
+        p img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <button id="btn1">下一张</button>
+        <button id="btn2">上一张</button>
+        <div class="box" id="box">
+            <p><img src="images/0.jpg" alt=""></p>
+            <p><img src="images/1.jpg" alt=""></p>
+            <p><img src="images/2.jpg" alt=""></p>
+            <p><img src="images/3.jpg" alt=""></p>
+            <p><img src="images/4.jpg" alt=""></p>
+            <p><img src="images/5.jpg" alt=""></p>
+            <p><img src="images/6.jpg" alt=""></p>
+            <p><img src="images/7.jpg" alt=""></p>
+            <p><img src="images/8.jpg" alt=""></p>
+        </div>
+    </div>
+    <script>
+        var ps = document.querySelectorAll('p');
+        for (var i = 0; i < ps.length; i++) {
+            ps[i].style.transform = 'rotateY(' + 40 * i + 'deg) translateZ(500px)'
+        }
+        var box = document.querySelector('#box');
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        var deg = 0;
+        btn1.onclick = function() {
+            deg += 40;
+            box.style.transform = 'rotateY(' + deg + 'deg)'
+        };
+        btn2.onclick = function() {
+            deg -= 40;
+            box.style.transform = 'rotateY(' + deg + 'deg)'
+        };
+    </script>
+</body>
+
+</html>

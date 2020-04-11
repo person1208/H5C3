@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #000;
+        }
+        
+        .stage {
+            width: 800px;
+            height: 400px;
+            margin: 200px auto;
+            perspective: 3300px;
+        }
+        
+        .box {
+            width: 800px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 2s linear;
+        }
+        
+        p {
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -40px;
+            margin-left: -50px;
+            border: 1px solid #000;
+            background-color: rgba(58, 212, 205, 0.411);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box" id="box">
+
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('#box');
+        var obj = {
+            '90': 1,
+            '70': 4,
+            '50': 8,
+            '30': 12,
+            '10': 15,
+            '0': 20,
+            '-10': 15,
+            '-30': 12,
+            '-50': 8,
+            '-70': 4,
+            '-90': 1,
+        }
+        for (var k in obj) {
+            for (var i = 0; i < obj[k]; i++) {
+                var p = document.createElement('p');
+                p.style.transform = 'rotateY(' + i * (360 / obj[k]) + 'deg) rotateX(' + k + 'deg) translateZ(300px)'
+                box.appendChild(p);
+            }
+        }
+
+        var x = 0;
+        var y = 0;
+        setInterval(function() {
+            x++;
+            y++;
+
+            box.style.transform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
+        }, 10);
+    </script>
+</body>
+
+</html>
