@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>试题4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            margin: 100px auto;
+            width: 400px;
+        }
+        
+        .box .clear {
+            list-style: none;
+            width: 400px;
+        }
+        
+        .box .clear div {
+            display: none;
+        }
+        
+        .box ul li {
+            border-bottom: 2px #eee solid;
+            background-image: url(img/sj.png);
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+        
+        .box ul li h2 {
+            margin: 10px 0 25px 10px;
+        }
+        
+        .box .clear .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="clear" id="clear">
+            <li>
+                <h2>要求<span></span></h2>
+                <div class="active">
+                    <p>要求要求要求要求要求要求要求要求要求要求要求要求要求要求要求要求要求</p>
+                </div>
+
+            </li>
+            <li>
+                <h2>信念<span></span></h2>
+                <div>
+                    <p>信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念信念</p>
+                </div>
+            </li>
+            <li>
+                <h2>接受<span></span></h2>
+                <div>
+                    <p>接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受接受</p>
+                </div>
+            </li>
+            <li>
+                <h2>现实<span></span></h2>
+                <div>
+                    <p>现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实现实</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var clear = document.getElementById("clear");
+        var clearDivs = clear.getElementsByTagName("h2");
+        console.log(clearDivs);
+
+        for (var n = 0; n < clearDivs.length; n++) {
+            clearDivs[n].onmouseenter = function() {
+                var li = this.nextElementSibling;
+                console.log(li);
+
+                li.className = "active";
+            }
+        }
+    </script>
+</body>
+
+</html>

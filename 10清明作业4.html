@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box_inn {
+            border: 1px solid #000;
+            width: 961px;
+            height: 500px;
+            margin: 120px auto;
+            /* overflow: hidden; */
+        }
+        
+        ul {
+            list-style-type: none;
+            position: relative;
+        }
+        
+        li {
+            position: absolute;
+            transition: all 0.3s linear;
+            opacity: 0;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        li.li0 {
+            width: 120px;
+            left: -130px;
+            top: 50px;
+            opacity: 0;
+        }
+        
+        li.li1 {
+            width: 160px;
+            left: 0;
+            top: 30px;
+            opacity: 1;
+        }
+        
+        li.li2 {
+            width: 180px;
+            left: 180px;
+            top: 20px;
+            opacity: 1;
+        }
+        
+        li.li3 {
+            width: 201px;
+            left: 380px;
+            opacity: 1;
+        }
+        
+        li.li4 {
+            width: 180px;
+            left: 601px;
+            top: 20px;
+            opacity: 1;
+        }
+        
+        li.li5 {
+            width: 160px;
+            left: 801px;
+            top: 30px;
+            opacity: 1;
+        }
+        
+        li.li6 {
+            width: 120px;
+            left: 971px;
+            top: 50px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+        <div class="box_inn">
+            <ul>
+                <li class="li0">1<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li1">2<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li2">3<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li3">4<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li4">5<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li5">6<img src="images/feedback_bg.png" alt=""></li>
+                <li class="li6">7<img src="images/feedback_bg.png" alt=""></li>
+                <li>8<img src="images/feedback_bg.png" alt=""></li>
+                <li>9<img src="images/feedback_bg.png" alt=""></li>
+                <li>10<img src="images/feedback_bg.png" alt=""></li>
+                <li>11<img src="images/feedback_bg.png" alt=""></li>
+                <li>12<img src="images/feedback_bg.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var arr = ['li0', 'li1', 'li2', 'li3', 'li4', 'li5', 'li6', '', '', '', '', ''];
+        var clicklock = true;
+        $('#next').click(function() {
+            if (!lock) return;
+            lock = false;
+            setTimeout(function() {
+                lock = true;
+            }, 300);
+            arr.push(arr.shift())
+            for (var i = 0; i < arr.length; i++) {
+                $('li').eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+
+        });
+
+        $('#prev').click(function() {
+            if (!lock) return;
+            lock = false;
+            setTimeout(function() {
+                lock = true;
+            }, 300);
+            arr.unshift(arr.pop())
+            for (var i = 0; i < arr.length; i++) {
+                $('li').eq(i).attr('class', arr[i]);
+            }
+            console.log(arr);
+
+        });
+
+        $('.box_inn').mouseenter(function() {
+            lock = false;
+        });
+        $('.box_inn').mouseleave(function() {
+            lock = true;
+        });
+        var lock = true;
+        setInterval(function() {
+            if (!lock) return;
+            $('#next').trigger('click');
+        }, 1000);
+    </script>
+</body>
+
+</html>

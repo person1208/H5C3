@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1></h1>
+        </div>
+        <div class="search">
+            <input type="text">
+        </div>
+        <div class="login">登陆</div>
+    </header>
+
+    <div class="banner">
+        <div class="swiper-container carousel1" id="carousel1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="">
+                        <img src="images/banner1.png" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="images/banner2.png" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="">
+                        <img src="images/banner3.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+
+        </div>
+    </div>
+
+    <nav>
+        <div class="row">
+            <div class="list n0">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n1">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n2">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n3">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="list n4">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n5">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n6">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+            <div class="list n7">
+                <a href=""></a>
+                <span>文字</span>
+            </div>
+        </div>
+    </nav>
+
+    <h3 id="hot"><i></i> 热门推荐</h3>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <p>asdfasdf</p>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('#carousel1', {
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            autoplay: {
+                delay: 1000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            }
+
+
+        })
+    </script>
+
+    <script>
+        window.onload = function() {
+            var h3 = document.getElementById('hot');
+            var h3off = h3.offsetTop;
+            console.log(h3off);
+
+            window.onscroll = function() {
+                if (document.documentElement.scrollTop >= h3off) {
+                    h3.style.position = 'fixed';
+                    h3.style.top = '0';
+                    h3.style.left = '0'
+                } else {
+                    h3.style.position = ''
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .left {
+            width: 820px;
+            height: 380px;
+        }
+        
+        .left .top {
+            width: 820px;
+            height: 340px;
+            overflow: hidden;
+        }
+        
+        .left .top ul {
+            width: 4100px;
+            height: 340px;
+            transition: all .3s;
+            margin-left: 0;
+        }
+        
+        .left .top ul li {
+            float: left;
+            list-style: none;
+        }
+        
+        .left .top ul li img {
+            display: block;
+        }
+        
+        .left .bot {
+            width: 820px;
+            height: 40px;
+        }
+        
+        .left .bot ul li {
+            list-style: none;
+            width: 156px;
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            background-color: #e3e2e2;
+            font-size: 12px;
+        }
+        
+        .left .bot ul .active {
+            background-color: white;
+            color: #ab8e66;
+            border-bottom: 2px solid #cea861;
+            height: 38px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <div class="top">
+            <ul id="picture">
+                <li>
+                    <img src="https://ossweb-img.qq.com/upload/adw/image/20200406/e5d97a28f7f2d0b5b1ac8cdf116e0c29.jpeg" alt="">
+                </li>
+                <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200413/3038bc8b116b3f0052910ec62ff72f23.jpeg" alt=""></li>
+                <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200403/4f01a1bc9c55433958772e478942ac59.jpeg" alt=""></li>
+                <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200402/32516d5d31e1f47a15d94abde435be9e.jpeg" alt=""></li>
+                <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200329/fe62e2840c028db7bfd047f814a91ca0.jpeg" alt=""></li>
+            </ul>
+        </div>
+        <div class="bot">
+            <ul id="bot">
+                <li class="active">银河太空秘宝</li>
+                <li>银河战争云顶宝典</li>
+                <li>银河战争 通行证</li>
+                <li>愚人节2020皮肤</li>
+                <li>克隆大作战</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var bot = document.getElementById("bot");
+        var botLis = bot.getElementsByTagName("li");
+        var picture = document.getElementById("picture");
+        for (var n = 0; n < botLis.length; n++) {
+            botLis[n].index = n;
+            botLis[n].onmouseenter = function() {
+                for (var j = 0; j < botLis.length; j++) {
+                    botLis[j].className = "";
+                }
+                this.className = "active";
+                picture.style.marginLeft = -this.index * 820 + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

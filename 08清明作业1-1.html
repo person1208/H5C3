@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .box {
+            width: 1120px;
+            height: 350px;
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        .box_img {
+            width: 1120px;
+            height: 350px;
+        }
+        
+        .box_img li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        
+        .zhezhao {
+            position: absolute;
+            height: 120px;
+            width: 1120px;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+        }
+        
+        .box_tab {
+            position: absolute;
+            bottom: 10px;
+            width: 632px;
+            height: 54px;
+            left: 50%;
+            margin-left: -306px;
+        }
+        
+        .prev,
+        .next {
+            float: left;
+            width: 31px;
+            height: 46px;
+            background: url(images/prev.png) no-repeat;
+            margin-top: 7px;
+            position: relative;
+            z-index: 999;
+        }
+        
+        .box_tab li {
+            float: left;
+            margin: 0 8px;
+        }
+        
+        .box_tab li a {
+            display: block;
+            width: 90px;
+            height: 45px;
+            padding: 7px 2px 2px;
+        }
+        
+        .box_tab li.cur a {
+            background: url('images/lion.png') no-repeat;
+        }
+        
+        .box_tab li img {
+            width: 90px;
+            height: 45px;
+        }
+        
+        .box_tab_inn {
+            width: 550px;
+            height: 54px;
+            float: left;
+            overflow: hidden;
+        }
+        
+        .box_tab_inn ul {
+            height: 54px;
+            float: left;
+            position: relative;
+        }
+        
+        .next {
+            background: url(images/next.png) no-repeat;
+        }
+        
+        .scrollbar {
+            width: 1100px;
+            height: 54px;
+        }
+        
+        .box_img li.cur {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box_img" id="box_img">
+            <ul>
+                <li class="cur">
+                    <a href=""><img src="images/sohu1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/sohu2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/sohu3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/sohu4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="images/sohu5.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+        <div class="zhezhao"></div>
+        <div class="box_tab" id="box_tab">
+            <a class="prev" href="javascript:;"></a>
+            <div class="box_tab_inn" id="box_tab_inn">
+                <div class="scrollbar">
+                    <ul>
+                        <li class="cur">
+                            <a href=""><img src="images/sohu1_s.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="images/sohu2_s.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="images/sohu3_s.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="images/sohu4_s.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href=""><img src="images/sohu5_s.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="next" href="javascript:;"></a>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#box_tab li').clone().appendTo('#box_tab ul');
+        var n = 0;
+        var m = 0;
+        $ul = $('#box_tab ul');
+        $lis = $('#box_tab ul li')
+        $('.next').click(function() {
+            n++;
+            $ul.animate({
+                'left': -110 * n
+            }, 200, function() {
+                if (n == 5) {
+                    n = 0;
+                    $ul.css('left', 0)
+                }
+            });
+
+        });
+
+        $('.prev').click(function() {
+            if (n == 0) {
+                n = 5;
+                $ul.css('left', -110 * 5)
+            }
+            n--;
+            $ul.animate({
+                'left': -110 * n
+            }, 200);
+
+        });
+
+        $lis.mouseenter(function() {
+            render($(this).index() % 5);
+        });
+
+        function render(a) {
+            m = a;
+            $lis.removeClass('cur');
+            $lis.eq(m).addClass('cur');
+            $lis.eq(m + 5).addClass('cur');
+
+            $('#box_img li').fadeOut();
+            $('#box_img li').eq(m).fadeIn();
+        }
+
+
+        $('.box').mouseenter(function() {
+            lock = false;
+        });
+
+        $('.box').mouseleave(function() {
+            lock = true;
+        });
+        var lock = true;
+        setInterval(function() {
+            if (!lock) {
+                return;
+            }
+            $('.next').trigger('click');
+            render((m + 1) % 5);
+        }, 1000);
+    </script>
+</body>
+
+</html>

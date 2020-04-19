@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .main {
+            width: 100%;
+            height: 380px;
+        }
+        
+        .main .inner {
+            width: 1358px;
+            height: 380px;
+            margin: 0 auto;
+        }
+        
+        .main .inner .left {
+            width: 820px;
+            height: 380px;
+            float: left;
+        }
+        
+        .main .inner .left .top {
+            width: 820px;
+            height: 340px;
+            overflow: hidden;
+        }
+        
+        .main .inner .left .top ul {
+            width: 4100px;
+            height: 340px;
+            transition: all .3s;
+            margin-left: 0;
+        }
+        
+        .main .inner .left .top ul li {
+            float: left;
+        }
+        
+        .main .inner .left .top ul li img {
+            display: block;
+        }
+        
+        .main .inner .left .bot {
+            width: 820px;
+            height: 40px;
+        }
+        
+        .main .inner .left .bot ul li {
+            width: 164px;
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            background-color: #e3e2e2;
+            font-size: 12px;
+        }
+        
+        .main .inner .left .bot ul .active {
+            background-color: white;
+            color: #ab8e66;
+            border-bottom: 2px solid #cea861;
+            height: 38px;
+        }
+        
+        .main .inner .right {
+            width: 496px;
+            height: 380px;
+            float: right;
+        }
+        
+        .main .inner .right .top {
+            width: 496px;
+            height: 35px;
+            border-bottom: 1px #e0e2e2 solid;
+        }
+        
+        .main .inner .right .top ul {
+            width: 596px;
+            height: 35px;
+        }
+        
+        .main .inner .right .top ul li {
+            font-size: 18px;
+            line-height: 35px;
+            margin-right: 74px;
+            float: left;
+            list-style: none;
+        }
+        
+        .main .inner .right .top ul .active {
+            font-weight: 700;
+            color: #1da6ba;
+            border-bottom: 1px blue solid;
+        }
+        
+        .main .inner .right .bot {
+            width: 496px;
+            height: 345px;
+        }
+        
+        .main .inner .right .bot ul {
+            width: 496px;
+            height: 305px;
+        }
+        
+        .main .inner .right .bot div {
+            display: none;
+        }
+        
+        .main .inner .right .bot .show {
+            display: block;
+        }
+        
+        .main .inner .right .bot .show ul li {
+            float: left;
+            width: 496px;
+            height: 40px;
+            border-top: 1px #e0e2e2 solid;
+            text-align: left;
+        }
+        
+        .main .inner .right .bot .show ul .first {
+            width: 496px;
+            height: 59px;
+            line-height: 59px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 59px;
+            color: #0da0b4;
+        }
+        
+        .main .inner .right .bot .show ul li .liType {
+            color: #6388c5;
+            border: 1px #97afc5 solid;
+            width: 36px;
+            height: 20px;
+            font-size: 12px;
+            vertical-align: middle;
+            line-height: 18px;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .main .inner .right .bot .show ul li .a {
+            vertical-align: middle;
+            width: 370px;
+            height: 39px;
+            margin-left: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            color: black;
+            line-height: 39px;
+            display: inline-block;
+        }
+        
+        .main .inner .right .bot .show ul li .time {
+            vertical-align: middle;
+            width: 50px;
+            height: 39px;
+            text-align: right;
+            font-size: 14px;
+            color: #9d9d9d;
+            margin-left: 18px;
+            line-height: 39px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="inner">
+            <div class="left">
+                <div class="top">
+                    <ul id="picture">
+                        <li>
+                            <img src="https://ossweb-img.qq.com/upload/adw/image/20200406/e5d97a28f7f2d0b5b1ac8cdf116e0c29.jpeg" alt="">
+                        </li>
+                        <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200413/3038bc8b116b3f0052910ec62ff72f23.jpeg" alt=""></li>
+                        <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200403/4f01a1bc9c55433958772e478942ac59.jpeg" alt=""></li>
+                        <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200402/32516d5d31e1f47a15d94abde435be9e.jpeg" alt=""></li>
+                        <li><img src="https://ossweb-img.qq.com/upload/adw/image/20200329/fe62e2840c028db7bfd047f814a91ca0.jpeg" alt=""></li>
+                    </ul>
+                </div>
+                <div class="bot">
+                    <ul id="bot">
+                        <li class="active">银河太空秘宝</li>
+                        <li>银河战争云顶宝典</li>
+                        <li>银河战争 通行证</li>
+                        <li>愚人节2020皮肤</li>
+                        <li>克隆大作战</li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                var bot = document.getElementById("bot");
+                var botLis = bot.getElementsByTagName("li");
+                var picture = document.getElementById("picture");
+                for (var n = 0; n < botLis.length; n++) {
+                    botLis[n].index = n;
+                    botLis[n].onmouseenter = function() {
+                        for (var j = 0; j < botLis.length; j++) {
+                            botLis[j].className = "";
+                        }
+                        this.className = "active";
+                        picture.style.marginLeft = -this.index * 820 + "px";
+                    }
+                }
+            </script>
+            <div class="right">
+                <div class="top">
+                    <ul id="tt">
+                        <li class="active">综合</li>
+                        <li>公告</li>
+                        <li>赛事</li>
+                        <li>攻略</li>
+                        <li>社区</li>
+                    </ul>
+                </div>
+                <div class="bot" id="bot">
+                    <div class="show">
+                        <ul>
+                            <li class="first">
+                                1更简洁 更清爽 新界面来了！
+                            </li>
+                            <li>
+                                <span class="liType">赛事</span>
+                                <a href="#" class="a">LPL春季赛季后赛及总决赛举办时间公布</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">公布云顶之弈：银河战争总决赛</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">开发者日志：风暴欲临</a>
+                                <span class="time">04-11</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">星之守护者杯 魔法少女解除快乐封印</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">视频</span>
+                                <a href="#" class="a">英雄联盟宇宙：城邦传说 - 弗雷尔卓德</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">《云顶之弈》倒数十八周（下）</a>
+                                <span class="time">04-05</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="first">
+                                2更简洁 更清爽 新界面来了！
+                            </li>
+                            <li>
+                                <span class="liType">赛事</span>
+                                <a href="#" class="a">LPL春季赛季后赛及总决赛举办时间公布</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">公布云顶之弈：银河战争总决赛</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">开发者日志：风暴欲临</a>
+                                <span class="time">04-11</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">星之守护者杯 魔法少女解除快乐封印</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">视频</span>
+                                <a href="#" class="a">英雄联盟宇宙：城邦传说 - 弗雷尔卓德</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">《云顶之弈》倒数十八周（下）</a>
+                                <span class="time">04-05</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="first">
+                                3更简洁 更清爽 新界面来了！
+                            </li>
+                            <li>
+                                <span class="liType">赛事</span>
+                                <a href="#" class="a">LPL春季赛季后赛及总决赛举办时间公布</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">公布云顶之弈：银河战争总决赛</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">开发者日志：风暴欲临</a>
+                                <span class="time">04-11</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">星之守护者杯 魔法少女解除快乐封印</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">视频</span>
+                                <a href="#" class="a">英雄联盟宇宙：城邦传说 - 弗雷尔卓德</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">《云顶之弈》倒数十八周（下）</a>
+                                <span class="time">04-05</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="first">
+                                4更简洁 更清爽 新界面来了！
+                            </li>
+                            <li>
+                                <span class="liType">赛事</span>
+                                <a href="#" class="a">LPL春季赛季后赛及总决赛举办时间公布</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">公布云顶之弈：银河战争总决赛</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">开发者日志：风暴欲临</a>
+                                <span class="time">04-11</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">星之守护者杯 魔法少女解除快乐封印</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">视频</span>
+                                <a href="#" class="a">英雄联盟宇宙：城邦传说 - 弗雷尔卓德</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">《云顶之弈》倒数十八周（下）</a>
+                                <span class="time">04-05</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="first">
+                                5更简洁 更清爽 新界面来了！
+                            </li>
+                            <li>
+                                <span class="liType">赛事</span>
+                                <a href="#" class="a">LPL春季赛季后赛及总决赛举办时间公布</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">公布云顶之弈：银河战争总决赛</a>
+                                <span class="time">04-14</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">开发者日志：风暴欲临</a>
+                                <span class="time">04-11</span>
+                            </li>
+                            <li>
+                                <span class="liType">新闻</span>
+                                <a href="#" class="a">星之守护者杯 魔法少女解除快乐封印</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">视频</span>
+                                <a href="#" class="a">英雄联盟宇宙：城邦传说 - 弗雷尔卓德</a>
+                                <span class="time">04-10</span>
+                            </li>
+                            <li>
+                                <span class="liType">其他</span>
+                                <a href="#" class="a">《云顶之弈》倒数十八周（下）</a>
+                                <span class="time">04-05</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tt = document.getElementById("tt");
+        var topLis = tt.getElementsByTagName("li");
+        var bot = document.getElementById("bot");
+        // var botDivs = bot.getElementsByTagName("div");
+        var botDivs = document.querySelectorAll('#bot div');
+
+        for (var n = 0; n < topLis.length; n++) {
+            topLis[n].index = n;
+            topLis[n].onclick = function() {
+                console.log(this.index, botDivs);
+                for (var j = 0; j < topLis.length; j++) {
+                    topLis[j].className = "";
+                }
+                this.className = "active";
+
+
+                for (var k = 0; k < botDivs.length; k++) {
+                    botDivs[k].className = "";
+                }
+
+
+                botDivs[this.index].className = "show";
+
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>

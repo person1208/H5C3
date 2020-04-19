@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .louceng {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .louceng div {
+            height: 500px;
+            background: rebeccapurple;
+        }
+        
+        h3 {
+            height: 40px;
+            background-color: red;
+        }
+        
+        ul {
+            list-style: none;
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+        }
+        
+        ul li {
+            width: 100px;
+            height: 60px;
+            background-color: red;
+            line-height: 60px;
+            text-align: center;
+        }
+        
+        ul li.cur {
+            background-color: salmon;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="louceng">
+        <h3>新闻</h3>
+        <div></div>
+        <h3>电影</h3>
+        <div></div>
+        <h3>电视剧</h3>
+        <div></div>
+        <h3>综艺节目</h3>
+        <div></div>
+        <h3>搞笑节目</h3>
+        <div></div>
+        <h3>国家大事</h3>
+        <div></div>
+        <h3>吃播</h3>
+        <div></div>
+        <h3>旅游</h3>
+        <div></div>
+    </div>
+    <ul>
+        <li class="cur">新闻</li>
+        <li>电影</li>
+        <li>电视剧</li>
+        <li>综艺节目</li>
+        <li>搞笑节目</li>
+        <li>国家大事</li>
+        <li>吃播</li>
+        <li>旅游</li>
+    </ul>
+    <div style="height:500px"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // $('li').click(function() {
+        //     var n = $(this).index();
+        //     console.log($('h3').eq(n).offset().top);
+        //     var top = $('h3').eq(n).offset().top;
+        //     $('html, body').animate({
+        //         'scrollTop': top
+        //     }, 300);
+        // });
+        var $h3s = $('h3');
+        var arr = [];
+        var nowfloor = 0;
+        // for (var i = 0; i < $h3s.length; i++) {
+        //     console.log($($h3s[i]).offset().top);
+
+        // }
+        $h3s.each(function() {
+            arr.push($(this).offset().top);
+        });
+        arr.push(Infinity);
+        console.log(arr);
+
+        $(window).scroll(function() {
+            var top = $(window).scrollTop();
+            for (var i = 0; i < arr.length; i++) {
+                if (top >= arr[i] && top <= arr[i + 1]) {
+                    // break;
+                    console.log(i);
+                    if (nowfloor != i) {
+                        nowfloor = i;
+                        $('li').eq(nowfloor).addClass('cur').siblings().removeClass('cur');
+                    }
+
+                }
+            }
+
+
+        });
+
+        $('li').click(function() {
+            var n = $(this).index();
+            console.log(arr[n]);
+
+            $('html,body').animate({
+                'scrollTop': arr[n]
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

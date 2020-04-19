@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .f0 {
+            height: 888px;
+            background-color: silver;
+        }
+        
+        .f1 {
+            height: 550px;
+            position: relative;
+            background-color: skyblue;
+        }
+        
+        .f1 h2 {
+            position: absolute;
+            left: 50%;
+            font-size: 70px;
+            margin-left: -445px;
+            top: 50px;
+            transform: translateY(-200px);
+            transition: all .3s linear;
+        }
+        
+        .f1 h3 {
+            width: 370px;
+            position: absolute;
+            left: 50%;
+            margin-left: -476px;
+            top: 275px;
+            transform: translateX(-200px);
+            transition: all .3s linear .3s;
+        }
+        
+        .f1 img {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            left: 50%;
+            top: 50px;
+            transform: rotate(360deg);
+            transition: all .4s linear .2s;
+        }
+        
+        .f1 .floor1 {
+            opacity: 0;
+        }
+        
+        .f1.cur .floor1 {
+            opacity: 1;
+            transform: none;
+        }
+        
+        .f2 {
+            height: 1000px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .f2 h2 {
+            color: #fff;
+            font-size: 60px;
+            text-align: center;
+            padding-top: 40px;
+        }
+        
+        .f2 .floor2 {
+            position: absolute;
+            width: 300px;
+        }
+        
+        .f2 .files1 {
+            left: 50%;
+            margin-left: -150px;
+            top: 200px;
+            transition: all .4s cubic-bezier(0.16, -0.06, 0.37, 2.21);
+        }
+        
+        .f2 .files2 {
+            left: 50%;
+            margin-left: -150px;
+            top: 200px;
+            z-index: 9999;
+        }
+        
+        .f2 .files4 {
+            left: 50%;
+            margin-left: -150px;
+            top: 200px;
+            transition: all .4s cubic-bezier(0.16, -0.06, 0.37, 2.21);
+        }
+        
+        .f2.cur .files1 {
+            left: 25%;
+        }
+        
+        .f2.cur .files4 {
+            left: 75%;
+        }
+        
+        .f3 {
+            height: 1300px;
+            position: relative;
+        }
+        
+        .f3 .box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            top: 100px;
+        }
+        
+        .f3.cur .box {
+            position: fixed;
+            top: 300px;
+        }
+        
+        .f4 {
+            height: 1600px;
+            position: relative;
+            background-color: bisque;
+        }
+        
+        .f4 .box {
+            display: none;
+        }
+        
+        .f4.cur .box {
+            display: block;
+            position: fixed !important;
+            width: 0px;
+            height: 0px;
+            background: url('images/BingWallpaper-2020-04-08.jpg') no-repeat center center;
+            left: 50%;
+            margin-left: 0px;
+            border-radius: 50%;
+            top: 200px;
+        }
+        
+        .f4 h2 {
+            font-size: 80px;
+            color: #fff;
+            position: fixed;
+            top: 200px;
+            z-index: 9999;
+            text-align: center;
+            width: 100%;
+            opacity: 0;
+            transition: all .4s ease;
+            text-shadow: 1px 1px 1px #000;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="f0"></div>
+    <div class="f1">
+        <h2 class="floor1">无惧逆光，<br />笑容绽放</h2>
+        <h3 class="floor1">AI HDR+ 以精准的人像分割算法，对面部进行分区域打光优化，配合多帧合成及 AI 智能处理，一如专业打光师，让你的脸部光线更加真实自然，逆光下笑容不再黯然失色。</h3>
+        <img class="floor1" src="images/pic_superHdr_before_md.jpg">
+    </div>
+    <div class="f2">
+        <h2>文档拍摄助手</h2>
+        <div>
+            <img class="floor2 files1" src="images/files-1.png" alt="">
+            <img class="floor2 files2" src="images/files-2.png" alt="">
+            <img class="floor2 files4" src="images/files-4.png" alt="">
+        </div>
+    </div>
+    <div class="f3">
+        <div class="box"></div>
+    </div>
+    <div class="f4">
+        <h2>超级清晰，完美</h2>
+        <div class="box">
+        </div>
+    </div>
+    x
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var f1OffsetTop = $('.f1').offset().top;
+        var f2OffsetTop = $('.f2').offset().top;
+        var f3OffsetTop = $('.f3').offset().top;
+        var f4OffsetTop = $('.f4').offset().top;
+        var isF1 = false;
+        var isF2 = false;
+        var isF3 = false;
+        var isF4 = false;
+        // console.log(top, f1OffsetTop);
+        $(window).scroll(function() {
+            var top = $(window).scrollTop();
+            if (!isF1 && top > f1OffsetTop - 200 && top < f1OffsetTop + 550) {
+                isF1 = true;
+                console.log('1进来了');
+                $('.f1').addClass('cur');
+            } else if (isF1 && (top > f1OffsetTop + 550 || top < f1OffsetTop - 200)) {
+                isF1 = false;
+                console.log('1出去了');
+                $('.f1').removeClass('cur');
+            }
+
+            if (!isF2 && top > f2OffsetTop - 200 && top < f2OffsetTop + 1000) {
+                isF2 = true;
+                console.log('2进来了');
+                $('.f2').addClass('cur');
+
+            } else if (isF2 && (top > f2OffsetTop + 1000 || top < f2OffsetTop - 200)) {
+                isF2 = false;
+                console.log('2出去了');
+                $('.f2').removeClass('cur');
+            }
+
+            if (!isF3 && top > f3OffsetTop - 200 && top < f3OffsetTop + 1300) {
+                isF3 = true;
+                console.log('3进来了');
+                $('.f3').addClass('cur');
+            } else if (isF3 && (top > f3OffsetTop + 1300 || top < f3OffsetTop - 200)) {
+                isF3 = false;
+                console.log('3出去了');
+                $('.f3').removeClass('cur');
+            }
+
+
+            if (!isF4 && top > f4OffsetTop - 300 && top < f4OffsetTop + 1600) {
+                isF4 = true;
+                console.log('4进来了');
+                $('.f4').addClass('cur');
+            } else if (isF4 && (top > f4OffsetTop + 1600 || top < f4OffsetTop - 300)) {
+                isF4 = false;
+                console.log('4出去了');
+                $('.f4').removeClass('cur');
+            }
+            if (isF4) {
+                console.log(top, f4OffsetTop, top - f4OffsetTop);
+
+                $('.f4 .box').css('width', (top - f4OffsetTop + 300) * 3);
+                $('.f4 .box').css('height', (top - f4OffsetTop + 300) * 3);
+                $('.f4 .box').css('marginLeft', -(top - f4OffsetTop + 300) * 3 / 2);
+                $('.f4 .box').css('top', $(window).height() / 2 - (top - f4OffsetTop + 300) * 3 / 2);
+                var opa = (top - f4OffsetTop + 300) / (f4OffsetTop - 800) * 3;
+                $('.f4 h2').css('opacity', opa);
+
+            }
+        });
+    </script>
+</body>
+
+</html>

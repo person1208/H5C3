@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .row1 {
+            width: 95%;
+            height: 100px;
+            background: red;
+            margin: 4px auto;
+        }
+        
+        .row2,
+        .row3,
+        .row4,
+        .row5,
+        .row6 {
+            width: 95%;
+            height: 100px;
+            margin: 4px auto;
+        }
+        
+        .row2 div {
+            float: left;
+            width: 25%;
+            height: 100px;
+        }
+        
+        .row2 .box1 {
+            background-color: rgb(96, 96, 240);
+        }
+        
+        .row2 .box2 {
+            background-color: rgb(96, 240, 197);
+        }
+        
+        .row2 .box3 {
+            background-color: rgb(96, 175, 240);
+        }
+        
+        .row2 .box4 {
+            background-color: rgb(240, 238, 96);
+        }
+        
+        .row3 .box1 {
+            width: 50%;
+            float: left;
+            height: 100px;
+            background-color: burlywood;
+        }
+        
+        .row3 .box2 {
+            width: 25%;
+            float: left;
+            height: 100px;
+            background-color: rgb(181, 222, 135);
+        }
+        
+        .row3 .box3 {
+            width: 25%;
+            float: left;
+            height: 100px;
+            background-color: rgb(222, 170, 135);
+        }
+        
+        .row4 .box1 {
+            height: 100px;
+            float: left;
+            width: 25%;
+            background-color: cadetblue;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        
+        .row4 .box2 {
+            height: 100px;
+            float: left;
+            width: 25%;
+            background-color: rgb(160, 95, 95);
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        
+        .row4 .box3 {
+            height: 100px;
+            float: left;
+            width: 25%;
+            background-color: rgb(160, 95, 157);
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        
+        .row4 .box4 {
+            height: 100px;
+            float: left;
+            width: 25%;
+            background-color: rgb(95, 105, 160);
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        
+        .row5 .box1 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            background-color: rgb(101, 95, 160);
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row5 .box2 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            background-color: cadetblue;
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row5 .box3 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            background-color: rgb(129, 95, 160);
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row5 .box4 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            background-color: rgb(160, 95, 138);
+            box-sizing: border-box;
+        }
+        
+        .row6 .box1 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row6 .box1 .inn {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(101, 95, 160);
+            border-radius: 10px;
+            ;
+        }
+        
+        .row6 .box2 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row6 .box2 .inn {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(101, 95, 160);
+            border-radius: 10px;
+            ;
+        }
+        
+        .row6 .box3 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            border-right: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        
+        .row6 .box3 .inn {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(101, 95, 160);
+            border-radius: 10px;
+            ;
+        }
+        
+        .row6 .box4 {
+            float: left;
+            width: 25%;
+            height: 100px;
+            box-sizing: border-box;
+        }
+        
+        .row6 .box4 .inn {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(101, 95, 160);
+            border-radius: 10px;
+        }
+        
+        .row7 {
+            width: 95%;
+            height: 60px;
+            margin: 4px auto;
+            position: relative;
+            padding: 0 70px;
+            box-sizing: border-box;
+        }
+        
+        .row7 .box1 {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 0;
+            left: 0;
+            background-color: green;
+        }
+        
+        .row7 .box2 {
+            height: 60px;
+            width: 100%;
+            background-color: coral;
+            /* box-sizing: border-box; */
+        }
+        
+        .row7 .box3 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row1"></div>
+    <div class="row2">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+    <div class="row3">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <div class="row4">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+    <div class="row5">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </div>
+    <div class="row6">
+        <div class="box1">
+            <div class="inn"></div>
+        </div>
+        <div class="box2">
+            <div class="inn"></div>
+        </div>
+        <div class="box3">
+            <div class="inn"></div>
+        </div>
+        <div class="box4">
+            <div class="inn"></div>
+        </div>
+    </div>
+    <div class="row7">
+        <div class="box1">
+            <div class="inn"></div>
+        </div>
+        <div class="box2">
+            <div class="inn"></div>
+        </div>
+        <div class="box3">
+            <div class="inn"></div>
+        </div>
+    </div>
+</body>
+
+</html>

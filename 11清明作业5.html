@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            margin-top: 100px;
+            position: relative;
+            width: 100%;
+            height: 350px;
+            /* background-color: #b4874f; */
+        }
+        
+        ul,
+        ol {
+            list-style: none;
+        }
+        
+        ul,
+        ul li {
+            width: 100%;
+            height: 350px;
+        }
+        
+        ul {
+            position: relative;
+        }
+        
+        ul li {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .item1 {
+            background: url(images/bg1.png) no-repeat center;
+            opacity: 1;
+        }
+        
+        .item1 .item1-img {
+            width: 980px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .item1 .item1-img img {
+            position: absolute;
+        }
+        
+        .item1 .item1-img img:nth-child(1) {
+            bottom: 0;
+            left: 90px;
+            transform: scale(0) rotate(360deg);
+            transition: all 1s linear;
+        }
+        
+        .item1.cur .item1-img img:nth-child(1) {
+            bottom: 0;
+            left: 90px;
+            transform: scale(1) rotate(0deg);
+        }
+        
+        .item1 .item1-img img:nth-child(2) {
+            bottom: -21px;
+            left: 330px;
+            transform: scale(0);
+            transition: all 1s linear;
+        }
+        
+        .item1.cur .item1-img img:nth-child(2) {
+            bottom: -21px;
+            left: 330px;
+            transform: scale(1);
+        }
+        
+        .item1 .item1-img img:nth-child(3) {
+            width: 480px;
+            right: -60px;
+            top: 50px;
+        }
+        
+        .item2 {
+            background: rgb(201, 163, 58);
+        }
+        
+        .item2 .item2-img {
+            width: 980px;
+            height: 350px;
+            background: url(images/bg2.png) no-repeat;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .item2 .item2-img img {
+            position: absolute;
+        }
+        
+        .item2 .item2-img img:nth-child(1) {
+            bottom: -28px;
+            left: 90px;
+            transform: translateX(-1000px);
+            transition: all 1.2s linear;
+        }
+        
+        .item2.cur .item2-img img:nth-child(1) {
+            bottom: -28px;
+            left: 90px;
+            transform: translateX(0);
+        }
+        
+        .item2 .item2-img img:nth-child(2) {
+            top: 50px;
+            right: 100px;
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: all 1s linear .6s;
+        }
+        
+        .item2.cur .item2-img img:nth-child(2) {
+            top: 50px;
+            right: 100px;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .item3 {
+            background: #b4874f;
+        }
+        
+        .item3 .item3-img {
+            width: 980px;
+            height: 350px;
+            background: url(images/bg3.jpg) no-repeat;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .item3 .item3-img img {
+            position: absolute;
+        }
+        
+        .item3 .item3-img img:nth-child(1) {
+            bottom: 0;
+            left: 20px;
+            transform: scale(0);
+            transition: all 1s linear;
+        }
+        
+        .item3.cur .item3-img img:nth-child(1) {
+            bottom: 0;
+            left: 20px;
+            transform: scale(1);
+        }
+        
+        .item3 .item3-img img:nth-child(2) {
+            top: 50%;
+            margin-top: -58px;
+            right: 50px;
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: all 1s linear .6s;
+        }
+        
+        .item3.cur .item3-img img:nth-child(2) {
+            top: 50%;
+            margin-top: -58px;
+            right: 50px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        ol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: 560px;
+        }
+        
+        ol li {
+            width: 16px;
+            height: 16px;
+            background-color: orange;
+            border-radius: 50%;
+            margin-top: 4px;
+        }
+        
+        ol li.cur {
+            background-color: ivory;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="item1 cur">
+                <!-- <img class="bg1" src="images/bg1.png" alt=""> -->
+                <div class="item1-img">
+                    <img class="boy" src="images/aa68238.png" alt="">
+                    <img src="images/3449a2e.png" alt="">
+                    <img src="images/eb7a456.png" alt="">
+                </div>
+
+            </li>
+            <li class="item2">
+                <!-- <img class="bg2" src="images/bg2.png" alt=""> -->
+                <div class="item2-img">
+                    <img src="images/c16c05f.png" alt="">
+                    <img src="images/e967436.png" alt="">
+                </div>
+            </li>
+            <li class="item3">
+                <div class="item3-img">
+                    <!-- <img src="images/bg3.jpg" alt=""> -->
+                    <img src="images/3adc198.png" alt="">
+                    <img src="images/53d6fb1.png" alt="">
+                </div>
+            </li>
+        </ul>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('ol li').click(function() {
+            $('ul li').animate({
+                'opacity': 0
+            }, 300);
+            var n = $(this).index();
+            $('ul li').eq(n).animate({
+                'opacity': 1
+            }, 300);
+            $('ul li').eq(n).addClass('cur').siblings().removeClass('cur');
+            $(this).addClass('cur').siblings().removeClass('cur');
+        });
+    </script>
+</body>
+
+</html>

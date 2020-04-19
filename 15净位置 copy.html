@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            img {
+                width: 300px;
+                height: 400px;
+                position: absolute;
+                top: 300px;
+                left: 400px;
+            }
+            
+            .box0 {
+                height: 800px;
+                background-color: bisque;
+            }
+            
+            .box1 {
+                position: relative;
+                height: 900px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box0"></div>
+        <div class="box1">
+            <p><img src="images/yangmi/ym1.jpg" alt=""></p>
+        </div>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            var box1offsettop = $('.box1').offset().top;
+            console.log(box1offsettop);
+            $(window).scroll(function() {
+                var top = $(window).scrollTop();
+                console.log(top);
+                var chazhi = top - box1offsettop;
+                console.log(chazhi);
+
+            });
+        </script>
+    </body>
+    <script>
+    </script>
+
+    </html>
+</body>
+
+</html>

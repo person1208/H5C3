@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .box {
+            position: relative;
+            width: 1500px;
+            height: 100px;
+            margin: 40px auto;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        /* .box .boxscroll {
+            /* width: 10000px; */
+        /* } */
+        
+        .box .boxscroll li {
+            height: 100px;
+            position: absolute;
+            width: 1070px !important;
+            transition: all .4s ease-in-out;
+        }
+        
+        .box .boxscroll li.item0 {
+            left: 0;
+        }
+        
+        .box .boxscroll li.item1 {
+            left: 215px;
+        }
+        
+        .box .boxscroll li.item2 {
+            left: 430px;
+        }
+        
+        .box .boxscroll li.item3 {
+            left: 645px;
+        }
+        
+        .box .boxscroll li.item4 {
+            left: 860px;
+        }
+        
+        .box .boxscroll li.item5 {
+            left: 1075px;
+        }
+        
+        .box .boxscroll li.item6 {
+            left: 1290px;
+        }
+        
+        .box .boxscroll .small {
+            width: 210px;
+            height: 100px;
+            float: left;
+            transition: all .4s ease-in-out;
+        }
+        
+        .box .boxscroll .show {
+            height: 100px;
+            margin-left: 5px;
+            float: left;
+            width: 0;
+            opacity: 0;
+            transition: all .4s ease-in-out;
+        }
+        
+        .box .boxscroll li.z0 {
+            left: 0;
+        }
+        
+        .box .boxscroll li.z0 .show {
+            width: 0;
+            opacity: 0;
+        }
+        
+        .box .boxscroll li.z {
+            left: 0;
+        }
+        
+        .box .boxscroll li.z .show {
+            width: 855px;
+            opacity: 1;
+        }
+        
+        .box .boxscroll li.z1 {
+            left: 215px;
+        }
+        
+        .box .boxscroll li.z2 {
+            left: 430px;
+        }
+        
+        .box .boxscroll li.z2 .show {
+            width: 855px;
+            opacity: 1;
+        }
+        
+        .box .boxscroll li.y {
+            left: 1075px;
+        }
+        
+        .box .boxscroll li.y1 {
+            left: 1290px;
+        }
+        
+        .box .boxscroll li.y2 {
+            left: 1505px;
+        }
+        
+        .box a {
+            position: absolute;
+            width: 32px;
+            height: 40px;
+            top: 50%;
+            margin-top: -20px;
+            z-index: 999;
+        }
+        
+        .box a.left {
+            left: 0;
+        }
+        
+        .box a.right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a class="left" href="javascript:;"><img src="images/arrow-left.png" alt=""></a>
+        <a class="right" href="javascript:;"><img src="images/arrow-right.png" alt=""></a>
+        <div class="boxscroll">
+            <ul>
+
+                <li class="item0">
+                    <div class="small"><img src="images/aqi1.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi1-show.jpg" alt=""></div>
+                </li>
+                <li class="item1">
+                    <div class="small"><img src="images/aqi2.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi2-show.jpg" alt=""></div>
+                </li>
+                <li class="item2">
+                    <div class="small"><img src="images/aqi3.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi3-show.jpg" alt=""></div>
+                </li>
+                <li class="item3">
+                    <div class="small"><img src="images/aqi4.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi4-show.jpg" alt=""></div>
+                </li>
+                <li class="item4">
+                    <div class="small"><img src="images/aqi5.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi5-show.jpg" alt=""></div>
+                </li>
+                <li class="item5">
+                    <div class="small"><img src="images/aqi6.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi6-show.jpg" alt=""></div>
+                </li>
+                <li class="item6">
+                    <div class="small"><img src="images/aqi7.jpg" alt=""></div>
+                    <div class="show"><img src="images/aqi7-show.jpg" alt=""></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <img src="images/aqi1.jpg" alt=""><img src="images/aqi2.jpg" alt=""><img src="images/aqi3.jpg" alt=""><img src="images/aqi4.jpg" alt=""><img src="images/aqi5.jpg" alt="">
+        <img src="images/aqi6.jpg" alt=""> <img src="images/aqi7.jpg" alt="">
+        <!-- z y y1 y2 y2 y2 y2 -->
+        <!-- z0 z y y1 y2 y2 y2 y2-->
+        <!-- z0 z0 z y y1 y2 y2 -->
+        <!-- z0 z0 z0 z y y1 y2 -->
+        <!-- z0 z0 z0 z0 z y y1 -->
+        <!-- z0 z0 z0 z0 z1 z2 y2 -->
+        <!-- z0 z0 z0 z0 z0 z1 z2 -->
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('ul li').mouseenter(function() {
+
+            var n = $(this).index();
+            if (n < 5) {
+                $(this).addClass('z');
+                for (var i = 0; i < n; i++) {
+                    $('li').eq(i).addClass('z0');
+                }
+
+                $('li').eq(n + 1).addClass('y');
+                $('li').eq(n + 2).addClass('y1');
+
+                for (var i = n + 3; i < 7; i++) {
+                    $('li').eq(i).addClass('y2');
+                }
+            } else if (n >= 5) {
+                $('li').eq(n - 1).addClass('z1');
+                for (var i = 0; i < n - 1; i++) {
+                    $('li').eq(i).addClass('z0');
+                }
+                $(this).addClass('z2');
+                $('li').eq(n + 1).addClass('y2');
+            }
+
+        });
+        $('ul li').mouseleave(function() {
+            for (var i = 0; i < 7; i++) {
+                $('li').eq(i).attr('class', 'item' + i);
+            }
+        });
+    </script>
+</body>
+
+</html>
